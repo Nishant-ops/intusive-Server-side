@@ -9,8 +9,8 @@ const validateEmail = (email) => {
 };
 const checkAdminEmail = (headers) => {
   if (headers.auth) {
-    const decode = jwt.verify(headers.auth, "secret");
-    if (decode.role == "admin") return true;
+    const decode = jwt.verify(headers.auth, `${process.env.private_key}`);
+    if (decode.role == "Admin") return true;
   }
   return false;
 };
